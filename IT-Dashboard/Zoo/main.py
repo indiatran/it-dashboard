@@ -63,6 +63,10 @@ class Animal(ABC):
     def move(self):
         pass
 
+    @abstractmethod
+    def habitat(self):
+        pass
+
 
 # ---------------------------------
 # Animal Subclasses
@@ -74,6 +78,9 @@ class Dog(Animal):
     def move(self):
         return "Runs fast."
 
+    def habitat(self):
+        return "Dogs usually live in homes, farms, or shelters with people."
+
 
 class Bird(Animal):
     def speak(self):
@@ -81,6 +88,9 @@ class Bird(Animal):
 
     def move(self):
         return "Flies high."
+
+    def habitat(self):
+        return "Birds live in trees, forests, nests, and open skies."
 
 
 class Fish(Animal):
@@ -90,6 +100,9 @@ class Fish(Animal):
     def move(self):
         return "Swims around."
 
+    def habitat(self):
+        return "Fish live in rivers, lakes, ponds, and oceans."
+
 
 class Cat(Animal):
     def speak(self):
@@ -98,6 +111,9 @@ class Cat(Animal):
     def move(self):
         return "Sneaks quietly."
 
+    def habitat(self):
+        return "Cats usually live in homes, streets, or barns."
+
 
 class Dolphin(Animal):
     def speak(self):
@@ -105,6 +121,9 @@ class Dolphin(Animal):
 
     def move(self):
         return "Jumps through water."
+
+    def habitat(self):
+        return "Dolphins live in oceans and warm coastal waters."
 
 
 # ---------------------------------
@@ -126,6 +145,7 @@ class Zoo:
             print(a.describe())
             print(a.speak())
             print(a.move())
+            print("Habitat:", a.habitat())
             print()
 
     def count(self):
@@ -133,6 +153,30 @@ class Zoo:
 
     def loudest_animal(self):
         return max(self.animals, key=lambda a: len(a.speak()))
+
+    def show_animal_menu(self):
+        while True:
+            print("\nANIMAL MENU")
+            print("-" * 30)
+            for i in range(len(self.animals)):
+                print(f"{i + 1}. See {self.animals[i].name}")
+            print("6. Exit animal menu")
+
+            choice = input("Choose an animal (1-6): ")
+
+            if choice in ["1", "2", "3", "4", "5"]:
+                animal = self.animals[int(choice) - 1]
+                print("\n" + animal.describe())
+                print("Sound:", animal.speak())
+                print("Movement:", animal.move())
+                print("Habitat:", animal.habitat())
+
+            elif choice == "6":
+                print("Exiting animal menu.")
+                break
+
+            else:
+                print("Invalid choice.")
 
 
 # ---------------------------------
@@ -157,7 +201,7 @@ for device in assets:
 # Zoo Objects
 zoo = Zoo("Hexworth Wildlife Park")
 
-zoo.add_animal(Dog("Rex", "Shepherd"))
+zoo.add_animal(Dog("Rex", "German Shepherd"))
 zoo.add_animal(Bird("Sunny", "Parrot"))
 zoo.add_animal(Fish("Bubbles", "Goldfish"))
 zoo.add_animal(Cat("Luna", "Siamese"))
@@ -170,6 +214,8 @@ print("Total Animals:", zoo.count())
 loud = zoo.loudest_animal()
 print("Loudest Animal:", loud.name, "-", loud.speak())
 
+# Animal Menu
+zoo.show_animal_menu()
 
 # Break it on Purpose
 try:

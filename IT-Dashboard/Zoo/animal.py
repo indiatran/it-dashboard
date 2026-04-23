@@ -79,6 +79,34 @@ class Cat(Animal):
     def habitat(self):
         return "Cats usually live in homes, streets, or barns."
 
+class Rhino(Animal):
+    def __init__(self, name, horn_length):
+        super().__init__(name, "Mammal")
+        self.horn_length = horn_length
+
+    def speak(self):
+        return "Grunt!"
+
+    def move(self):
+        return "Charges forward."
+
+    def habitat(self):
+        return "Rhinos live in grasslands and savannas."
+
+class Alligator(Animal):
+    def __init__(self, name, length):
+        super().__init__(name, "Reptile")
+        self.length = length
+
+    def speak(self):
+        return "Hiss!"
+
+    def move(self):
+        return "Crawls slowly."
+
+    def habitat(self):
+        return "Alligators live in freshwater swamps and rivers."
+
 class Dolphin(Animal):
     def __init__(self, name, water_type):
         super().__init__(name, "Cetacean")

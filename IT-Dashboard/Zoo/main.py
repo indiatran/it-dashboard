@@ -1,4 +1,4 @@
-from animal import Bird, Fish, Cat, Dolphin
+from animal import Bird, Rhino, Alligator, Dolphin
 from habitat import Habitat
 from zoo import Zoo
 from zookeeper import Zookeeper
@@ -8,8 +8,8 @@ from tkinter import scrolledtext
 # Create animals
 bird1 = Bird("Tweety", True)
 bird2 = Bird("Penguin Pete", False)
-fish = Fish("Nemo", "Saltwater")
-cat = Cat("Whiskers", "Siamese")
+alligator = Alligator("Snappy", 12)  # 12 feet long
+rhino = Rhino("Rocky", 2)  # 2 feet horn
 dolphin = Dolphin("Flipper", "Ocean")
 
 # Create habitats
@@ -18,10 +18,10 @@ aviary = Habitat("Sky Dome Aviary", "temperate", 10)
 aquarium = Habitat("Deep Blue Aquarium", "aquatic", 20)
 
 # Add animals to habitats
-savanna.add_animal(cat)
+savanna.add_animal(rhino)
 aviary.add_animal(bird1)
 aviary.add_animal(bird2)
-aquarium.add_animal(fish)
+aquarium.add_animal(alligator)
 aquarium.add_animal(dolphin)
 
 # Create zoo

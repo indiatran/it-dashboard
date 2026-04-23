@@ -1,9 +1,10 @@
 from abc import ABC, abstractmethod
 
 class Animal(ABC):
-    def __init__(self, name, species):
+    def __init__(self, name, species, favorite_food):
         self.name = name
         self.species = species
+        self.favorite_food = favorite_food
 
     def describe(self):
         return f"{self.name} is a {self.species}"
@@ -22,7 +23,7 @@ class Animal(ABC):
 
 class Dog(Animal):
     def __init__(self, name, breed):
-        super().__init__(name, "Canine")
+        super().__init__(name, "Canine", "Dog Food")
         self.breed = breed
 
     def speak(self):
@@ -36,7 +37,7 @@ class Dog(Animal):
 
 class Bird(Animal):
     def __init__(self, name, can_fly):
-        super().__init__(name, "Avian")
+        super().__init__(name, "Avian", "Seeds")
         self.can_fly = can_fly
 
     def speak(self):
@@ -53,7 +54,7 @@ class Bird(Animal):
 
 class Fish(Animal):
     def __init__(self, name, water_type):
-        super().__init__(name, "Fish")
+        super().__init__(name, "Fish", "Fish Flakes")
         self.water_type = water_type
 
     def speak(self):
@@ -81,7 +82,7 @@ class Cat(Animal):
 
 class Rhino(Animal):
     def __init__(self, name, horn_length):
-        super().__init__(name, "Mammal")
+        super().__init__(name, "Mammal", "Hay")
         self.horn_length = horn_length
 
     def speak(self):
@@ -95,7 +96,7 @@ class Rhino(Animal):
 
 class Alligator(Animal):
     def __init__(self, name, length):
-        super().__init__(name, "Reptile")
+        super().__init__(name, "Reptile", "Meat")
         self.length = length
 
     def speak(self):
@@ -109,7 +110,7 @@ class Alligator(Animal):
 
 class Dolphin(Animal):
     def __init__(self, name, water_type):
-        super().__init__(name, "Cetacean")
+        super().__init__(name, "Cetacean", "Fish")
         self.water_type = water_type
 
     def speak(self):

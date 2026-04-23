@@ -1,4 +1,4 @@
-from animal import Dog, Bird, Fish
+from animal import Bird, Fish, Cat, Dolphin
 from habitat import Habitat
 from zoo import Zoo
 from zookeeper import Zookeeper
@@ -6,10 +6,11 @@ import tkinter as tk
 from tkinter import scrolledtext
 
 # Create animals
-dog = Dog("Rex", "Golden Retriever")
 bird1 = Bird("Tweety", True)
 bird2 = Bird("Penguin Pete", False)
 fish = Fish("Nemo", "Saltwater")
+cat = Cat("Whiskers", "Siamese")
+dolphin = Dolphin("Flipper", "Ocean")
 
 # Create habitats
 savanna = Habitat("Savanna Exhibit", "tropical", 5)
@@ -17,10 +18,11 @@ aviary = Habitat("Sky Dome Aviary", "temperate", 10)
 aquarium = Habitat("Deep Blue Aquarium", "aquatic", 20)
 
 # Add animals to habitats
-savanna.add_animal(dog)
+savanna.add_animal(cat)
 aviary.add_animal(bird1)
 aviary.add_animal(bird2)
 aquarium.add_animal(fish)
+aquarium.add_animal(dolphin)
 
 # Create zoo
 zoo = Zoo("Hexworth Wildlife Park")

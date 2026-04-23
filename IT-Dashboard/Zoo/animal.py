@@ -64,3 +64,31 @@ class Fish(Animal):
 
     def habitat(self):
         return "Fish live in rivers, lakes, ponds, and oceans."
+
+class Cat(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name, "Feline")
+        self.breed = breed
+
+    def speak(self):
+        return "Meow!"
+
+    def move(self):
+        return "Sneaks quietly."
+
+    def habitat(self):
+        return "Cats usually live in homes, streets, or barns."
+
+class Dolphin(Animal):
+    def __init__(self, name, water_type):
+        super().__init__(name, "Cetacean")
+        self.water_type = water_type
+
+    def speak(self):
+        return "Eeeee Click!"
+
+    def move(self):
+        return "Jumps through water."
+
+    def habitat(self):
+        return "Dolphins live in oceans and warm coastal waters."

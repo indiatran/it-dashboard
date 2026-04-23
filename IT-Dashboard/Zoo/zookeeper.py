@@ -8,8 +8,10 @@ class Zookeeper:
         self.assigned_habitats.append(habitat)
 
     def daily_report(self):
-        print(f"Keeper: {self.name} ({self.specialty})")
+        report = f"Keeper: {self.name} ({self.specialty})\n"
         for habitat in self.assigned_habitats:
-            print(f"  {habitat}")
-            habitat.roll_call()
-        print()
+            report += f"  {habitat}\n"
+            for animal in habitat.animals:
+                report += f"  {animal.describe()}\n"
+        report += "\n"
+        return report

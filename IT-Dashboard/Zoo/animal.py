@@ -5,6 +5,9 @@ class Animal(ABC):
         self.name = name
         self.species = species
 
+    def describe(self):
+        return f"{self.name} is a {self.species}"
+
     @abstractmethod
     def speak(self):
         pass
@@ -13,8 +16,9 @@ class Animal(ABC):
     def move(self):
         pass
 
-    def describe(self):
-        return f"{self.name} is a {self.species}"
+    @abstractmethod
+    def habitat(self):
+        pass
 
 class Dog(Animal):
     def __init__(self, name, breed):
@@ -25,7 +29,10 @@ class Dog(Animal):
         return "Woof!"
 
     def move(self):
-        return "Runs on four legs"
+        return "Runs fast."
+
+    def habitat(self):
+        return "Dogs usually live in homes, farms, or shelters with people."
 
 class Bird(Animal):
     def __init__(self, name, can_fly):
@@ -37,9 +44,12 @@ class Bird(Animal):
 
     def move(self):
         if self.can_fly:
-            return "Flies through the air"
+            return "Flies high."
         else:
-            return "Waddles on the ground"
+            return "Waddles on the ground."
+
+    def habitat(self):
+        return "Birds live in trees, forests, nests, and open skies."
 
 class Fish(Animal):
     def __init__(self, name, water_type):
@@ -50,4 +60,7 @@ class Fish(Animal):
         return "Blub!"
 
     def move(self):
-        return "Swims in the water"
+        return "Swims around."
+
+    def habitat(self):
+        return "Fish live in rivers, lakes, ponds, and oceans."

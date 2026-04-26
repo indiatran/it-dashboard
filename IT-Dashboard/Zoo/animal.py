@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Animal(ABC):
     def __init__(self, name, species, favorite_food):
         self.name = name
@@ -21,6 +22,8 @@ class Animal(ABC):
     def habitat(self):
         pass
 
+
+# Kept for assignment safety, but not used in main.py
 class Dog(Animal):
     def __init__(self, name, breed):
         super().__init__(name, "Canine", "Dog Food")
@@ -35,89 +38,161 @@ class Dog(Animal):
     def habitat(self):
         return "Dogs usually live in homes, farms, or shelters with people."
 
+
 class Bird(Animal):
-    def __init__(self, name, can_fly):
-        super().__init__(name, "Avian", "Seeds")
+    def __init__(self, name, species="Bird", favorite_food="Seeds", can_fly=True):
+        super().__init__(name, species, favorite_food)
         self.can_fly = can_fly
 
     def speak(self):
         return "Chirp!"
 
     def move(self):
-        if self.can_fly:
-            return "Flies high."
-        else:
-            return "Waddles on the ground."
+        return "Flies through the air." if self.can_fly else "Walks on the ground."
 
     def habitat(self):
-        return "Birds live in trees, forests, nests, and open skies."
+        return "Birds live in nests, trees, cliffs, and aviaries."
+
 
 class Fish(Animal):
-    def __init__(self, name, water_type):
-        super().__init__(name, "Fish", "Fish Flakes")
+    def __init__(self, name, species="Fish", favorite_food="Fish Pellets", water_type="freshwater"):
+        super().__init__(name, species, favorite_food)
         self.water_type = water_type
 
     def speak(self):
         return "Blub!"
 
     def move(self):
-        return "Swims around."
+        return "Swims through the water."
 
     def habitat(self):
-        return "Fish live in rivers, lakes, ponds, and oceans."
+        return f"{self.species} live in {self.water_type} water environments."
 
-class Cat(Animal):
-    def __init__(self, name, breed):
-        super().__init__(name, "Feline")
-        self.breed = breed
+
+class Lion(Animal):
+    def __init__(self, name):
+        super().__init__(name, "Lion", "Meat")
 
     def speak(self):
-        return "Meow!"
+        return "Roar!"
 
     def move(self):
-        return "Sneaks quietly."
+        return "Stalks and runs across the savanna."
 
     def habitat(self):
-        return "Cats usually live in homes, streets, or barns."
+        return "Lions live in grasslands and open savannas."
+
+
+class Elephant(Animal):
+    def __init__(self, name):
+        super().__init__(name, "Elephant", "Fruit and Grass")
+
+    def speak(self):
+        return "Trumpet!"
+
+    def move(self):
+        return "Walks heavily and steadily."
+
+    def habitat(self):
+        return "Elephants live in grasslands, forests, and savannas."
+
+
+class Giraffe(Animal):
+    def __init__(self, name):
+        super().__init__(name, "Giraffe", "Leaves")
+
+    def speak(self):
+        return "Hum!"
+
+    def move(self):
+        return "Walks gracefully with long strides."
+
+    def habitat(self):
+        return "Giraffes live in open woodlands and savannas."
+
 
 class Rhino(Animal):
     def __init__(self, name, horn_length):
-        super().__init__(name, "Mammal", "Hay")
+        super().__init__(name, "Rhino", "Hay")
         self.horn_length = horn_length
 
     def speak(self):
         return "Grunt!"
 
     def move(self):
-        return "Charges forward."
+        return "Charges forward with power."
 
     def habitat(self):
         return "Rhinos live in grasslands and savannas."
 
+
+class Zebra(Animal):
+    def __init__(self, name):
+        super().__init__(name, "Zebra", "Grass")
+
+    def speak(self):
+        return "Bark!"
+
+    def move(self):
+        return "Trots quickly in herds."
+
+    def habitat(self):
+        return "Zebras live in grasslands and savannas."
+
+
+class Penguin(Bird):
+    def __init__(self, name):
+        super().__init__(name, species="Penguin", favorite_food="Fish", can_fly=False)
+
+    def speak(self):
+        return "Honk!"
+
+    def move(self):
+        return "Walks on the ground and waddles near the habitat floor."
+
+    def habitat(self):
+        return "Penguins live in cold coastal areas and rocky habitats."
+
+
+class Eagle(Bird):
+    def __init__(self, name):
+        super().__init__(name, species="Eagle", favorite_food="Small Animals", can_fly=True)
+
+    def speak(self):
+        return "Screech!"
+
+    def move(self):
+        return "Soars high and dives swiftly."
+
+    def habitat(self):
+        return "Eagles live in mountains, forests, cliffs, and aviaries."
+
+
 class Alligator(Animal):
     def __init__(self, name, length):
-        super().__init__(name, "Reptile", "Meat")
+        super().__init__(name, "Alligator", "Meat")
         self.length = length
 
     def speak(self):
         return "Hiss!"
 
     def move(self):
-        return "Crawls slowly."
+        return "Crawls on land and glides through water."
 
     def habitat(self):
-        return "Alligators live in freshwater swamps and rivers."
+        return "Alligators live in freshwater swamps, marshes, and rivers."
+
 
 class Dolphin(Animal):
     def __init__(self, name, water_type):
-        super().__init__(name, "Cetacean", "Fish")
+        super().__init__(name, "Dolphin", "Fish")
         self.water_type = water_type
 
     def speak(self):
-        return "Eeeee Click!"
+        return "Click-click!"
 
     def move(self):
-        return "Jumps through water."
+        return "Swims quickly and leaps through the water."
 
     def habitat(self):
         return "Dolphins live in oceans and warm coastal waters."

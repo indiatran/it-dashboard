@@ -18,9 +18,11 @@ class Zoo:
         report += f"Habitats: {len(self.habitats)}\n"
         report += f"Animals: {self.total_animals()}\n"
         report += f"Keepers: {len(self.keepers)}\n\n"
+
         for habitat in self.habitats:
             report += str(habitat) + "\n"
             for animal in habitat.animals:
                 report += f"  {animal.describe()}\n"
             report += "\n"
+
         return report
